@@ -47,8 +47,8 @@ let map = new H.Map(
     defaultLayers.normal.map,
     {
         pixelRatio,
-        center: new H.geo.Point(34.62242, -78.60813),
-        zoom:12
+        center: new H.geo.Point(34.5242, -78.60813),
+        zoom:10
     }
 );
 
