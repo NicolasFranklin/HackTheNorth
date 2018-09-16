@@ -143,10 +143,11 @@ let layer = new H.datalens.ObjectLayer(provider, {
        if (data[4]=="Berliner Landesmuseen")
        {
          // Define a variable holding SVG mark-up that defines an icon image:
-         var svgMarkup = '<svg width="40" height="40" ' +
+         var svgMarkup = '<svg width="67" height="67" ' +
            'xmlns="http://www.w3.org/2000/svg">' +
-           '<rect stroke="white" fill="#000000" x="1" y="1" width="1000" ' +
-           'height="1000" /><text x="21" y="43.5" font-size="50pt" ' +
+           '<circle stroke="white" fill="#000" cx="31.5 " cy="31.5" r="33" />' +
+           '<circle stroke="white" fill="#fff" cx="31.5 " cy="31.5" r="30" />' +
+           '<text x="31.5" y="60" font-size="60pt" ' +
            'font-family="Arial" font-weight="bold" text-anchor="middle" ' +
            'fill="red">+</text></svg>';
 
@@ -158,12 +159,8 @@ let layer = new H.datalens.ObjectLayer(provider, {
        // ----- THIS REPRESENTS THE SHELTER -----
        else {
          // Define a variable holding SVG mark-up that defines an icon image:
-         var svgMarkup = '<svg width="40" height="40" ' +
-           'xmlns="http://www.w3.org/2000/svg">' +
-           '<rect stroke="white" fill="#ffffff" x="1" y="1" width="1000" ' +
-           'height="1000" /><text x="21" y="43.5" font-size="50pt" ' +
-           'font-family="Arial" font-weight="bold" text-anchor="middle" ' +
-           'fill="red">+</text></svg>';
+         var svgMarkup = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 34.58 36.33" width="60" height="60"><defs><style>.cls-1{fill:url(#radial-gradient);}.cls-2{fill:#999b9e;}.cls-3{fill:#fff;}.cls-4{fill:none;stroke:#77797c;stroke-miterlimit:10;}</style><radialGradient id="radial-gradient" cx="-67.92" cy="31.51" r="8.34" gradientTransform="translate(121.25 20.69) scale(1.54 0.39)" gradientUnits="userSpaceOnUse"><stop offset="0"/><stop offset="1" stop-opacity="0"/></radialGradient></defs><title>museum-shadow</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><ellipse class="cls-1" cx="16.77" cy="33.06" rx="12.83" ry="3.27"/><circle class="cls-2" cx="17.29" cy="17.29" r="16.79"/><path class="cls-3" d="M6.7,30.31a16.77,16.77,0,0,0,21.15,0c-.51-.78-1-1.55-1.53-2.34a1.34,1.34,0,0,1-.21-.71c0-2.67,0-8.35,0-9.88a.5.5,0,0,0-.5-.49H23.34c0,3.51,0,7.28,0,10.76H21.12c0-3.51,0-7.28,0-10.76H18.38c0,3.5,0,7.26,0,10.76H16.14c0-3.51,0-7.28,0-10.76H13.4c0,3.5,0,7.26,0,10.76H11.16c0-3.51,0-7.28,0-10.76H8.92a.49.49,0,0,0-.5.49c0,1.5,0,7,0,9.59A2.31,2.31,0,0,1,8,28.32C7.57,29,7.14,29.65,6.7,30.31Z"/><path class="cls-3" d="M17.39,8.9c1.06.62,2.11,1.26,3.17,1.87l6.1,3.48a.55.55,0,0,1-.27,1H8.16a.55.55,0,0,1-.28-1C11.09,12.41,17.11,9,17.19,8.9Z"/><circle class="cls-4" cx="17.29" cy="17.29" r="16.79"/></g></g></svg>`;
+
 
          // Create an icon, an object holding the latitude and longitude, and a marker:
           icon = new H.map.Icon(svgMarkup)
