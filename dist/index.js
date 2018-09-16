@@ -48,7 +48,7 @@ let map = new H.Map(
     {
         pixelRatio,
         center: new H.geo.Point(34.62242, -78.60813),
-        zoom:12
+        zoom:10
     }
 );
 
