@@ -47,7 +47,7 @@ let map = new H.Map(
     defaultLayers.normal.map,
     {
         pixelRatio,
-        center: new H.geo.Point(43.46, -80.50),
+        center: new H.geo.Point(34.62242, -78.60813),
         zoom:12
     }
 );
@@ -134,9 +134,6 @@ let layer = new H.datalens.ObjectLayer(provider, {
        let icon = H.datalens.ObjectLayer.createIcon(venueIcons[data[4]],
        {size: 50 * pixelRatio});
 
-       //Logs data
-       console.log(data);
-
        // If the text in the google doc is Berliner Landesmuseen, do a certain icon
        // IMPORTANT: The name MUST be Berliner - It will not work otherwise!
        // ----- THIS REPRESENTS THE HOSPITAL -----
@@ -188,7 +185,6 @@ map.addEventListener('pointermove', (e) => {
     hoveredObject = e.target;
     if (hoveredObject.icon) {
         let row = hoveredObject.getData();
-        console.log(row);
         if (row) {
             let name = row[1];
             let address = row[2];
