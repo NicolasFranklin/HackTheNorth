@@ -1,8 +1,9 @@
 (function () {
 'use strict';
 
-var app_id = "DemoAppId01082013GAL";
-var app_code = "AJKnXv84fjrb0KIHawS0Tg";
+
+var app_id = "JnS5aj2EGXvJEIucCVnk";
+var app_code = "6ufv-kHACL6npNtCSf6R4w";
 
 
 // Initialize communication with the platform, to access your own data, change the values below
@@ -16,6 +17,46 @@ const platform = new H.service.Platform({
     app_code,
     useCIT: true,
     useHTTPS: true
+});
+
+var router = platform.getRoutingService();
+
+var routingParams = {
+  'mode': 'fastest;car',
+  'waypoint0': 'geo!' + '34.3242' + ',' + '-78.40813',
+  'waypoint1': 'geo!' + '34.446132' + ',' + '-78.306471',
+  'representation': 'display'
+};
+
+var routeLine;
+
+var onResult = (result) => {
+  var route, shape, start, end, line;
+  if (result.response.route) {
+    route = result.response.route[0];
+    shape = route.shape;
+    line = new H.geo.LineString();
+    shape.forEach(function(point) {
+      var parts = point.split(',');
+      line.pushLatLngAlt(parts[0], parts[1]);
+    });
+    routeLine = new H.map.Polyline(line, {
+      style: { lineWidth: 10 },
+      arrows: { fillColor: 'white', frequency: 2, width: 0.8, length: 0.7 }
+    });
+
+    var startArrow = new H.map.Marker({
+      lat: 34.3242,
+      lng: -78.40813
+    });
+
+    map.addObjects([routeLine])
+    map.addObject(startArrow);
+  }
+}
+
+router.calculateRoute(routingParams, onResult, (error) => {
+  console.log(error.message);
 });
 
 function getLocation() {
@@ -47,7 +88,7 @@ let map = new H.Map(
     defaultLayers.normal.map,
     {
         pixelRatio,
-        center: new H.geo.Point(34.5242, -78.60813),
+        center: new H.geo.Point(34.3242, -78.40813),
         zoom:10
     }
 );
